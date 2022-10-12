@@ -1,0 +1,27 @@
+.general-container{
+    @include size (100vw, 100vh);
+    @include flex-set(column, center, normal, nowrap);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.grid-display{
+    @include size (100%, 100%);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+    "categories"
+    "main"
+    "footer";
+
+    @include media-up (desktop){
+        @include size (100vw, 100%);
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        "categories main news"
+        "footer footer footer";
+    }
+}

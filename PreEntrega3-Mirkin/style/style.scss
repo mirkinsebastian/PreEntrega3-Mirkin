@@ -1,0 +1,69 @@
+@import "utils";
+@import "global";
+@import "nav";
+@import "main";
+@import "categories";
+@import "footer";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"Poppins";
+    color: $primaryFontColor;
+}
+
+body{
+    background-color: $primaryColor;
+    overflow:hidden;
+}
+
+/* El scrollbar lo saque de internet para darle una mejor ux a la página*/
+
+.general-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: $scrollBarColor;
+}
+
+.general-container::-webkit-scrollbar
+{
+	width: 2vw;
+	background-color: $scrollBarColor;
+    @include media-up(desktop){
+        width: 20px;
+    }
+}
+
+.general-container::-webkit-scrollbar-thumb
+{
+	background-color: $scrollColor;
+	border: 0.5vw solid $secondaryColor;
+    @include media-up(desktop){
+        border-width: 5px;
+    }
+}
+
+a{
+    color:inherit;
+    text-decoration: none;
+}
+
+.news{
+    display: none;
+    @include media-up(desktop){
+        .news{
+            grid-area: news;
+            @include flex-set(row, normal, center, nowrap);
+            display: flex;
+            justify-content: center;
+        }
+    
+        .news h2{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+    }
+}

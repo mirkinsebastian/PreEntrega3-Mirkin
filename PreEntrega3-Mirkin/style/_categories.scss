@@ -1,0 +1,53 @@
+.categories{
+    display: none;
+}
+
+.categories-mobile{
+    padding: 0px;
+    @include media-up (desktop){
+        grid-area: categories;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px
+    }
+}
+
+.accordion-header{
+    font-size: 20px;
+    padding: 16px 20px 20px 16px;
+}
+
+.accordion-button{
+    font-size: 20px;
+}
+
+#panelsStayOpen-headingThree, #panelsStayOpen-headingOne{
+    padding: 0px;
+}
+
+.accordion-body{
+    @include flex-set(column, normal, normal, nowrap)
+}
+
+@include media-up (tablet){
+    .accordion-header{
+        font-size: 4vw;
+        padding: 2vw 3vw 3vw 2vw;
+    }
+    
+    .accordion-button{
+        font-size: 4vw;
+    }    
+}
+
+@include media-up (desktop){
+    .accordion-header{
+        font-size: 24px;
+        padding: 20px 30px 30px 20px;
+    }
+    
+    .accordion-button{
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,30 @@
+$primaryColor: #222222;
+$primaryFontColor: azure;
+$secondaryColor: #505050;
+$scrollColor: black;
+$scrollBarColor: #F5F5F5;
+$buttonColor: #696969;
+$breakpoints: (
+    tablet: 600px,
+    desktop: 1024px,
+    panoramic: 1500px
+);
+
+@mixin size ($width, $height){
+    width: $width;
+    height: $height;
+}
+
+@mixin media-up ($breakpoint) {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;        
+    }
+}
+
+@mixin flex-set ($direction, $alignment, $justified, $wrap) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $alignment;
+    justify-content: $justified;
+    flex-wrap: nowrap;
+}

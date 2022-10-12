@@ -1,0 +1,240 @@
+.main{
+    width: 100vw;
+    grid-area: main;
+    @include flex-set(column, center, normal, nowrap);
+    h2{
+        margin: 3%;
+        font-size: 24px;
+    }
+    .category-title{
+        @include flex-set(column, center, normal, nowrap);
+    }
+}
+
+.product{
+    @include flex-set(column, center, normal, nowrap);
+    width: 35%;
+    margin: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    img{
+        width: 100%;
+    }
+    h3{
+        @include flex-set(row, center, center, wrap);
+        font-size: 3vw;
+        margin: 5px;
+    }
+}
+
+.recommended-group, .comming-soon-group{
+    @include flex-set(row, center, space-evenly, wrap);
+    width: 100vw;
+    padding-bottom: 25px;
+    .product{
+        width: 40%;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.recent, .movies, .series, .airing{
+    @include flex-set(row, center, space-evenly, wrap);
+    width: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.filter{
+    @include flex-set(column, flex-start, flex-start, nowrap);
+    width: 100%;
+    padding: 0% 2% 2% 2%;
+    h3{
+        font-size: 18px;
+    }
+}
+
+.filter-combo{
+    @include flex-set(row, center, normal, nowrap);
+    padding: 0px 15px 0px 5px;
+    width: 100%;
+    .combo-box{
+        @include flex-set(row, baseline, normal, wrap);
+        font-size: 12px;
+        width: 100%;
+        select{
+            margin-right: 4%;
+            width: 29%;
+        }
+    }
+    #combo-box-series{
+        select{
+            width: 45%;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+    }
+}
+
+#search-button{
+    border-width: 0px;
+    .search{
+        width: 30px;
+    }
+}
+
+#filter-order{
+    width: 30vw;
+    margin: 2vw;
+    font-size: 4vw;
+}
+
+@include media-up(tablet){
+    .main{    
+        h2{
+            margin: 3%;
+            font-size: 5vw;
+        }
+        .filter{
+            h3{
+                font-size: 4vw;
+                padding-bottom: 2vw;
+            }
+            .filter-combo{
+                .combo-box{
+                    @include flex-set(row, baseline, normal, wrap);
+                    font-size: 4vw;
+                    width: 100%;
+                    select{
+                        margin-right: 4%;
+                        width: 25vw;
+                        option{
+                            font-size: 3vw;
+                        }
+                    }
+                    #search-button{
+                        .search{
+                            width: 5vw;
+                        }
+                    }
+                }
+                #combo-box-series{
+                    select{
+                        width: 45%;
+                        margin-bottom: 1vw;
+                        font-size: 4vw;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+@include media-up (desktop){
+    .main{
+        grid-area: main;
+        width: 100%;
+        padding: 15px;
+        h2{
+            margin: 20px;
+            font-size: 40px;
+        }
+        .category-title{
+            @include flex-set(row, center, space-between, nowrap);
+            width: 100%;
+            h2{
+                margin-left: 15px;
+            }
+            #filter-order{
+                width: 150px;
+                font-size: 20px;
+            }
+        }
+        .filter{
+            @include flex-set(column, flex-start, flex-start, nowrap);
+            width: 100%;
+            padding: 0% 2% 2% 2%;
+            h3{
+                font-size: 32px;
+                margin-bottom: 15px;
+                padding: 0px;
+            }
+            .filter-combo{
+                @include flex-set(row, center, normal, nowrap);
+                width: auto;
+                margin-top: 15px;
+                .combo-box{
+                    @include flex-set(row, center, normal, nowrap);
+                    font-size: 22px;
+                    select{
+                        background-color: #696969;
+                        border: 6px solid transparent;
+                        margin: 0px;
+                        margin-right: 15px;
+                        width: 150px;
+                        font-size: 20px;
+                        option{
+                            font-size: 20px;
+                        }
+                    }
+                    #search-button{
+                        .search{
+                            width: 30px
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .recommended{
+        @include flex-set(row, normal, space-evenly, nowrap);
+        width: 100%;
+    }
+
+    .recommended-group, .comming-soon-group{
+        @include flex-set(row, center, space-evenly, nowrap);
+        width: 100%;
+        padding-bottom: 25px;
+        .product{
+            width: 24%;
+        }
+    }
+
+    .recent, .movies, .series, .airing{
+        @include flex-set(row, center, space-evenly, wrap);
+        width: 100%;
+    }
+
+    .product{
+        @include flex-set(column, center, normal, nowrap);
+        width: 10vw;
+        margin: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        h3{
+            @include flex-set(row, center, center, wrap);
+            font-size: 18px;
+            margin: 5px;
+        }
+        img{
+            width: 100%;
+        }
+    }
+
+    #main-movies, #main-series{
+        grid-column-start: main;
+        grid-column-end: new;
+        grid-row-start: main;
+        grid-row-end: main;
+    }
+    
+    #main-airing{
+        grid-column-start: categories;
+        grid-column-end: main;
+        grid-row-start: categories;
+        grid-row-end: categories;
+    }
+}
